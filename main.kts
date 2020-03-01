@@ -1,6 +1,13 @@
 import kotlin.math.absoluteValue
+import kotlin.math.pow
 
 data class Result(val result: Double, val approximationCircles: Int)
+
+fun factorial(num: Int): Long {
+    var result = 1L
+    for (i in 2..num) result *= i
+    return result
+}
 
 fun sin(a: Double): Result {
     var x = a
@@ -13,15 +20,15 @@ fun sin(a: Double): Result {
 
     var sum = 0.0 // sum of first i terms in taylor series
 
-    var i = 1
+    var n = 1
     while (term != 0.0) {
-        term *= x / i
-        if (i % 4 == 1) sum += term
-        if (i % 4 == 3) sum -= term
-        i++
+        term *= x / n
+        if (n % 4 == 1) sum += term
+        if (n % 4 == 3) sum -= term
+        n++
     }
 
-    return Result(sum, i)
+    return Result(sum, n)
 }
 
 for (j in 0..100) {
