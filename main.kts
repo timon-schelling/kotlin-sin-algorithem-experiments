@@ -3,12 +3,6 @@ import kotlin.math.pow
 
 data class Result(val result: Double, val approximationCircles: Int)
 
-fun factorial(num: Int): Long {
-    var result = 1L
-    for (i in 2..num) result *= i
-    return result
-}
-
 fun sin(a: Double): Result {
     var x = a
 
